@@ -11,10 +11,10 @@
 body {
     background: #1f1100;
     color: var(--color);
-    min-width: 100vw;
-    overflow-x: hidden;
+    width: 100%;
     position: relative;
     font-family: art-deco-title;
+    overflow-x: hidden;
 }
 
 @font-face {
@@ -29,30 +29,30 @@ body {
 
 .corners img {
     position: absolute;
-    width: 15rem;
+    width: 10rem;
 }
 
 .corner1 {
     top: 0;
-    left: -2rem;
+    left: 0;
 }
 
 .corner2 {
-    top: 0;
-    right: -1rem;
+    top: 0.5rem;
+    right: 0;
     transform: rotate(90deg);
 }
 
 .corner3 {
-    bottom: 2.5rem;
-    left: -2rem;
+    bottom: 1rem;
+    left: -0.5rem;
     transform: rotate(-90deg);
     pointer-events: none;
 }
 
 .corner4 {
-    bottom: 2.5rem;
-    right: -1rem;
+    bottom: 1rem;
+    right: 0;
     transform: rotate(180deg);
     pointer-events: none;
 }
@@ -73,6 +73,7 @@ body {
 .title {
     padding: 0.5rem;
     font-family: art-deco-title;
+    font-size: 2rem;
 }
 
 .title-divider {
@@ -145,12 +146,23 @@ body {
     background: #d9d9d9
 }
 
-
-
+/* info containers */
+.info-container {
+    display: flex;
+    max-width: 80%;
+    height: 31.35rem;
+    background: var(--color);
+    position: relative;
+    margin: 10rem auto;
+    overflow: hidden;
+    color: #333;
+}
 
 .border2 {
-    max-width: 80vw;
-    margin: 5rem 7.5rem;
+    width: 100%;
+    position: absolute;
+    top: -5.607rem;
+    left: -0.01rem;
 }
 
 
