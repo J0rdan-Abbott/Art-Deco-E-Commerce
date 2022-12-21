@@ -1,0 +1,247 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color: #fff;
+}
+
+body {
+    /* background: #1f1100; */
+    color: var(--color);
+    min-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+    font-family: art-deco-title;
+}
+
+@font-face {
+    font-family: art-deco;
+    src: url(/Art-Deco-E-Commerce/RocketeersIkiikocom-Rp8jV.otf);
+}
+
+@font-face {
+    font-family: art-deco-title;
+    src: url(/Art-Deco-E-Commerce/ParkLaneNF.otf);
+}
+
+.corners img {
+    position: absolute;
+    width: 15rem;
+}
+
+.corner1 {
+    top: 0;
+    left: -2rem;
+}
+
+.corner2 {
+    top: 0;
+    right: -2rem;
+    transform: rotate(90deg);
+}
+
+.corner3 {
+    bottom: 1rem;
+    left: -2rem;
+    transform: rotate(-90deg);
+    pointer-events: none;
+}
+
+.corner4 {
+    bottom: 1rem;
+    right: -2rem;
+    transform: rotate(180deg);
+    pointer-events: none;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #008080;
+    border-bottom: 2px solid #d9d9d9;
+}
+
+.title-banner-top {
+    width: 25rem;
+    padding-top: 1rem;
+}
+
+.title {
+    padding: 0.5rem;
+    font-family: art-deco-title;
+}
+
+.title-divider {
+    position: absolute;
+    top: 3.5rem;
+    width: 20rem;
+}
+
+.subtitle {
+    font-family: art-deco;
+    padding: 4rem 0 2.75rem 0;
+    text-decoration: underline #d9d9d9;
+}
+
+.divider {
+    position: absolute;
+    top: 4.7rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 60vw;
+    height: 70vh;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: center;
+    background: #002e59;
+    padding: 1rem;
+    border-bottom: 2px solid silver;
+}
+
+.navbar-links {
+    display: flex;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.3rem;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    transition: all 0.3s;
+    border-radius: 0.2rem;
+    position: relative;
+}
+
+.navbar-links li a:hover {
+    text-shadow: 0 0 5px black;
+}
+
+.navbar-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 80%;
+    margin-left: 10%;
+    transform: scale(0);
+    transition: all 0.3s;
+    transform-origin: center;
+}
+
+.navbar-links li a:hover::after {
+    transform: scale(1);
+    background: #d9d9d9
+}
+
+
+
+
+.border2 {
+    max-width: 80vw;
+    margin: 5rem 7.5rem;
+}
+
+
+
+/* footer grid */
+.footer {
+    background: #00adad;
+    padding: 5rem 0;
+}
+
+.footer-container {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 20% auto 20%;
+    font-family: art-deco;
+}
+
+.footer-links {
+    grid-area: 1 / 1;
+    grid-column: span 3;
+    display: flex;
+    justify-content: center;
+    font-family: art-deco-title;
+    list-style: none;
+    padding: 1rem;
+}
+
+.footer-links li a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--color);
+    padding: 1rem 0;
+    margin: 0 1rem;
+    position: relative;
+}
+
+.footer-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0.8rem;
+    left: 0;
+    height: 2px;
+    width: 80%;
+    margin-left: 10%;
+    transform: scale(0);
+    transition: all 0.3s;
+    transform-origin: center;
+}
+
+.footer-links li a:hover::after {
+    transform: scale(1);
+    background: #d9d9d9
+}
+
+.help-column {
+    grid-area: 2 / 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.help-column-text {
+    list-style: none;
+}
+
+.help-column-text li a {
+    text-decoration: none;
+    color: var(--color);
+    transition: all 0.3s;
+}
+
+.help-column-text li a:hover {
+    padding-left: 0.5rem;
+}
+
+.form {
+    grid-area: 2 / 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.social-container {
+    grid-area: 2 / 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.copyright {
+    grid-area: 3 / 1;
+    grid-column: span 3;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
