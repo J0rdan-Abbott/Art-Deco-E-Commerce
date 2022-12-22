@@ -146,6 +146,33 @@ body {
     background: #d9d9d9
 }
 
+/* basket */
+.basket-background {
+    width: 7rem;
+    position: absolute;
+    top: 5rem;
+    right: 5rem;
+}
+
+.basket {
+    color: #fff;
+    position: absolute;
+    top: 6.3rem;
+    right: 7.9rem;
+    font-size: 1.3rem;
+}
+
+.counter {
+    font-family: helvetica;
+    position: absolute;
+    top: 5.5rem;
+    right: 7.3rem;
+    background: red;
+    padding: 0.1rem 0.3rem;
+    border-radius: 20%;
+    font-size: 0.85rem;
+}
+
 /* info containers */
 .info-container {
     display: flex;
