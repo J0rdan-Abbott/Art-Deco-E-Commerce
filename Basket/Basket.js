@@ -5,17 +5,56 @@ counterNumber = JSON.parse(localStorage.getItem('basket')).length;
 counter.textContent = counterNumber;
 
 let basket = JSON.parse(localStorage.getItem('basket'));
+let gridContainer = document.getElementsByClassName('basket-grid-container')[0];
 
 for (let i = 0; i < basket.length; i++) {
-    document.getElementsByClassName('basket-grid-container')[0].innerHTML += `
-    <div class="item">
-        <p>${basket[i].name}</p>
-        <img src="${basket[i].image}" alt="">
-        <p id="price">£${basket[i].price}</p>
-        <input type="number" value="1" id="quantity">
-        <i class="fa-regular fa-square-minus"></i>
-    </div>
-`;
+    gridContainer.innerHTML += `
+        <div class="item">
+            <p>${basket[i].name}</p>
+            <img src="${basket[i].image}" alt="">
+            <p id="price">£${basket[i].price}</p>
+            <input type="number" value="1" id="quantity">
+            <i class="fa-regular fa-square-minus"></i>
+        </div>
+    `;
+
+    updateBasketTotal();
+}
+
+let quantityInputs = document.querySelectorAll('#quantity');
+
+for (let i = 0; i < quantityInputs.length; i++) {
+    let input = quantityInputs[i];
+
+    input.addEventListener('change', function quantityChange(event) {
+        let currentInput = event.target;
+
+        if (isNaN(input.value) || input.value <= 0) {
+		input.value = 1
+	    }
+
+        updateBasketTotal();
+    });
+}
+
+function updateBasketTotal() {
+    let total = 0;
+    let items = gridContainer.children;
+
+    for (let i = 0; i < items.length; i++) {
+        let itemList = items[i];
+
+        let priceEl = itemList.querySelector('#price');
+        let quantityEl = itemList.querySelector('#quantity');
+
+        let price = parseFloat(priceEl.innerText.replace('£', ''));
+        let quantity = parseInt(quantityEl.value);
+
+        total += (price * quantity);
+        total = Math.round(total * 100) / 100;
+    }
+
+    document.getElementsByClassName('basket-total')[0].innerHTML = '£' + total;
 }
 
 let remove = document.getElementsByClassName('fa-square-minus');
@@ -31,7 +70,8 @@ function removeFunction(event) {
 
     document.getElementsByClassName('basket-grid-container')[0].removeChild(currentItem);
 
-    removeData()
+    removeData();
+    updateBasketTotal();
 }
 
 function removeData() {
@@ -54,17 +94,3 @@ function removeData() {
     counterNumber = JSON.parse(localStorage.getItem('basket')).length;
     counter.textContent = counterNumber;
 }
-
-// total price
-let priceList = document.querySelectorAll('#price');
-
-for (let i = 0; i < priceList.length; i++) {
-    let price = parseInt(priceList);
-    
-    console.log(price)
-}
-
-
-
-let quantity = document.querySelectorAll('#quantity');
-console.log(quantity)
